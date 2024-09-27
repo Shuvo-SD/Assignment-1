@@ -1,54 +1,26 @@
-class Book {
-  static int totalBooks = 0;
+class Car {
+  // Public properties
+  String brand;
+  String model;
+  int year;
 
-  String title;
-  String author;
-  int publicationYear;
-  int pagesRead;
+  // Constructor
+  Car(this.brand, this.model, this.year);
 
-  Book(this.title,this.author,this.publicationYear) : pagesRead = 0;
-
-  void read(int pages){
-    pagesRead += pages;
-  }
-
-  int getPagesRead(){
-    return pagesRead;
-  }
-  String getTitle(){
-    return title;
-  }
-
-  String getAuthor(){
-    return author;
-  }
-
-  int getPublicationYear(){
-    return publicationYear;
-  }
-
-  int getBookAge(){
+  // Method to calculate the car's age
+  int carAge() {
     int currentYear = DateTime.now().year;
-    return currentYear - publicationYear;
+    return currentYear - year;
   }
 }
 
-void main(){
-  Book book1 = Book('life of shuvo','shuvo',2022);
-  Book book2 = Book('the lean startup','eric ries',1992);
-  Book book3 = Book('half way','tahim',1999);
+void main() {
+  // Create an instance of the Car class
+  Car myCar = Car('Toyota', 'Corolla', 2015);
 
-  book1.read(22);
-  book2.read(44);
-  book3.read(66);
-
-  for (var book in [book1,book2,book3]){
-    print('Title: ${book.getTitle()}');
-    print('Author: ${book.getAuthor()}');
-    print('Publication Year: ${book.getPublicationYear()}');
-    print('Pages Read: ${book.getPagesRead()}');
-    print('Book Age: ${book.getBookAge()}');
-  }
-
-  print('Total number of Book objects created: ${Book.totalBooks}');
+  // Display the car's brand, model, year, and calculated age
+  print('Brand: ${myCar.brand}');
+  print('Model: ${myCar.model}');
+  print('Year: ${myCar.year}');
+  print('Car Age: ${myCar.carAge()} years');
 }
